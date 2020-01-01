@@ -1,4 +1,4 @@
-#!/Users/mari/dev/side-projects/restaurantApp/venv/bin/python3
+#!/Users/mari/dev/side-projects/restaurant-app/pyconkr2017/venv/bin/python3
 from django.core import management
 
 if __name__ == "__main__":

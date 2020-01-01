@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/mari/dev/side-projects/restaurantApp/venv"
+set -gx VIRTUAL_ENV "/Users/mari/dev/side-projects/restaurant-app/pyconkr2017/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
