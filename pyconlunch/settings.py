@@ -20,10 +20,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2(mq26r18&(94=#&u&(g^u5839gdfemnr399m@4@o8r5y-ga*='
+os.environ['SECRET_KEY'] = '2(mq26r18&(94=#&u&(g^u5839gdfemnr399m@4@o8r5y-ga*='
+SECRET_KEY = os.getenv('API_USER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["pyconlunch.azurewebsites.net", "10.10.5.145", "localhost"]
 
