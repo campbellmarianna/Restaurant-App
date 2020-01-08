@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
+import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,13 +22,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-os.environ['SECRET_KEY'] = '2(mq26r18&(94=#&u&(g^u5839gdfemnr399m@4@o8r5y-ga*='
-SECRET_KEY = os.getenv('SECRET_KEY')
+from dotenv import load_dotenv
+load_dotenv(verbose=True)
+SECRET_KEY = os.getenv("SECURITY_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ["pyconlunch.azurewebsites.net", "10.10.5.145", "localhost"]
+ALLOWED_HOSTS = ["restaurant-app-mc.herokuapp.com","localhost"]
 
 
 # Application definition
@@ -83,6 +86,9 @@ DATABASES = {
     }
 }
 
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -124,3 +130,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
