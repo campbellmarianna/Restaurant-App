@@ -1,2 +1,2 @@
-web: gunicorn workoutApp.wsgi --log-file -
+web: gunicorn pyconlunch.wsgi --log-file -
 
